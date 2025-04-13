@@ -3,6 +3,7 @@ package hu.nye.energydrink.entity;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "EnergyDrink")
 public class EnergyDrink {
 
     @Id
@@ -10,6 +11,7 @@ public class EnergyDrink {
     private Long id;
 
     private String name;
+    @Column(name = "caffeineContent")
     private int caffeineContent;  // Teljes koffeintartalom (mg)
     private int sugarContent;  // Cukortartalom (gramm)
     private int volume;  // Kiszerelés (ml)
@@ -21,6 +23,8 @@ public class EnergyDrink {
     @ManyToOne
     @JoinColumn(name = "brand_id", nullable = false)
     private Brand brand;
+    public EnergyDrink() {
+    }
 
     public Long getId() {
         return id;
