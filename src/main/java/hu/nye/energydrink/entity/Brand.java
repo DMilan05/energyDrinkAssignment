@@ -1,10 +1,11 @@
 package hu.nye.energydrink.entity;
 
 import jakarta.persistence.*;
+
 import java.util.List;
 
 @Entity
-@Table (name = "Brand")
+@Table(name = "Brand")
 public class Brand {
 
     @Id
@@ -14,7 +15,8 @@ public class Brand {
     private String name;
     private String country;
 
-    @OneToMany(mappedBy = "brand", cascade = CascadeType.ALL)
+    //@OneToMany(mappedBy = "brand", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "brand", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<EnergyDrink> drinks;
 
     public Brand(Long id, String name, String country, List<EnergyDrink> drinks) {
@@ -22,6 +24,9 @@ public class Brand {
         this.name = name;
         this.country = country;
         this.drinks = drinks;
+    }
+
+    public Brand() {
     }
 
     public Long getId() {

@@ -20,9 +20,10 @@ public class EnergyDrink {
     private double caffeinePer100ml;  // mg/100ml
     private double caloriesPer100ml;  // kcal/100ml
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "brand_id", nullable = false)
     private Brand brand;
+
     public EnergyDrink() {
     }
 
