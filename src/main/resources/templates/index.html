@@ -1,1 +1,14 @@
-<h1>Hello World!</h1>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>EnergyDrink App</title>
+</head>
+<body>
+<h1>Welcome to the EnergyDrink App</h1>
+<p>Select a section:</p>
+<ul>
+    <li><a th:href="@{/brands/list}">Brands</a></li>
+    <li><a th:href="@{/drinks/list}">Energy Drinks</a></li>
+</ul>
+</body>
+</html>

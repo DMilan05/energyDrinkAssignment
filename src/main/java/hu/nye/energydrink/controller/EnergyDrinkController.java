@@ -12,38 +12,15 @@ import java.util.List;
 import java.util.UUID;
 
 @Controller
-
 @RequestMapping("/drinks")
 public class EnergyDrinkController {
-    /*@Autowired
-    private final EnergyDrinkService service;
 
-    public EnergyDrinkController(EnergyDrinkService service) {
-        this.service = service;
-    }
-
-    @GetMapping
-    public List<EnergyDrink> getAllDrinks() {
-        return service.findAll();
-    }
-
-    @GetMapping("/filter")
-    public List<EnergyDrink> getDrinksByCaffeine(@RequestParam double minCaffeine, @RequestParam double maxCaffeine) {
-        return service.findByCaffeineRange(minCaffeine, maxCaffeine);
-    }
-
-    @PostMapping
-    public EnergyDrink addDrink(@RequestBody EnergyDrink drink) {
-        drink.calculateCaffeinePer100ml();
-        drink.calculateCaloriesPer100ml();
-        return service.save(drink);
-    }*/
     @Autowired
     private EnergyDrinkService energyDrinkService;
     @Autowired
     private BrandService brandServiceService;
 
-    // GET: List all energyDrinks (responds to /energyDrinks/list)
+    // GET: List all energyDrinks (responds to /drinks/list)
     @GetMapping("/list")
     public String getAllEnergyDrinks(Model model) {
         List<EnergyDrink> energyDrinks = energyDrinkService.getAllEnergyDrinks();
@@ -63,7 +40,7 @@ public class EnergyDrinkController {
     @PostMapping
     public String saveEnergyDrink(@ModelAttribute EnergyDrink energyDrink) {
         energyDrinkService.save(energyDrink);
-        return "redirect:/energyDrinks/list"; // Redirect to updated /energyDrinks/list after saving
+        return "redirect:/drinks/list"; // Corrected redirect path
     }
 
     // GET: Show Edit EnergyDrink Page
@@ -79,13 +56,13 @@ public class EnergyDrinkController {
     @PostMapping("/edit")
     public String updateEnergyDrinksk(@ModelAttribute EnergyDrink energyDrink) {
         energyDrinkService.edit(energyDrink);
-        return "redirect:/energyDrinks/list"; // Redirect to updated /energyDrinks/list after updating
+        return "redirect:/drinks/list"; // Corrected redirect path
     }
 
     // POST: Delete EnergyDrink
     @PostMapping("/delete/{id}")
     public String deleteEnergyDrinks(@PathVariable UUID id) {
         energyDrinkService.deleteById(id);
-        return "redirect:/energyDrinks/list"; // Redirect to updated /energyDrinks/list after deleting
+        return "redirect:/drinks/list"; // Corrected redirect path
     }
 }

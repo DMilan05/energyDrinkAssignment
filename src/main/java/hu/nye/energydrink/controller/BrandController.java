@@ -20,29 +20,19 @@ public class BrandController {
         this.brandService = service;
     }
 
-    /*@GetMapping
-    public List<Brand> getAllBrands() {
-        return service.findAll();
-    }
-
-    @PostMapping
-    public Brand addBrand(@RequestBody Brand brand) {
-        return service.save(brand);
-    }*/
-
     // GET: List all brands (responds to /brands/list)
     @GetMapping("/list")
     public String getAllBrands(Model model) {
         List<Brand> brands = brandService.getAllBrands();
         model.addAttribute("brands", brands);
-        return "brands/brands"; // Template location in brands directory
+        return "brands/brands"; //
     }
 
     // GET: Show Create Brand Page
     @GetMapping("/new")
     public String createBrandForm(Model model) {
         model.addAttribute("brand", new Brand());
-        return "brands/create-brand"; // Template for creating brands
+        return "brands/create-brand";
     }
 
     // POST: Save New Brand
@@ -57,20 +47,20 @@ public class BrandController {
     public String editBrandForm(@PathVariable UUID id, Model model) {
         Brand brand = brandService.findById(id);
         model.addAttribute("brand", brand);
-        return "brands/edit-brand"; // Template for editing brands
+        return "brands/edit-brand";
     }
 
     // POST: Update Existing Brand
     @PostMapping("/edit")
     public String updateBrand(@ModelAttribute Brand brand) {
         brandService.edit(brand);
-        return "redirect:/brands/list"; // Redirect to /brands/list after updating
+        return "redirect:/brands/list";
     }
 
     // POST: Delete Brand
     @PostMapping("/delete/{id}")
     public String deleteBrand(@PathVariable UUID id) {
         brandService.deleteById(id);
-        return "redirect:/authors/list"; // Redirect to /authors/list after deleting
+        return "redirect:/brands/list";
     }
 }

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Brand List</title>
+</head>
+<body>
+<h1>All Brands</h1>
+
+<a th:href="@{/brands/new}">Add New Brand</a>
+
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Country</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="brand : ${brands}">
+        <td th:text="${brand.name}">Brand Name</td>
+        <td th:text="${brand.country}">Country</td>
+        <td>
+            <a th:href="@{'/brands/edit/' + ${brand.id}}">Edit</a>
+            <form th:action="@{'/brands/delete/' + ${brand.id}}" method="post" style="display:inline;">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

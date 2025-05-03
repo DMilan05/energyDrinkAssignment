@@ -4,8 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EnergydrinkApplication {
+public class EnergyDrinkApplication {
     public static void main(String[] args) {
-        SpringApplication.run(EnergydrinkApplication.class, args);
+        SpringApplication.run(EnergyDrinkApplication.class, args);
     }
 }

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Energy Drink</title>
+</head>
+<body>
+<h1>Edit Energy Drink</h1>
+
+<form th:action="@{/drinks}" th:object="${energyDrink}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    <label>Name: <input type="text" th:field="*{name}"/></label><br/>
+    <label>Volume (ml): <input type="number" th:field="*{volumeInMl}"/></label><br/>
+    <label>Caffeine (mg): <input type="number" th:field="*{caffeineInMg}"/></label><br/>
+    <label>Calories: <input type="number" th:field="*{calories}"/></label><br/>
+    <label>Brand:
+        <select th:field="*{brand}">
+            <option th:each="brand : ${brands}" th:value="${brand}" th:text="${brand.name}"></option>
+        </select>
+    </label><br/>
+    <button type="submit">Save</button>
+</form>
+
+<a href="/drinks/list">Back to list</a>
+</body>
+</html>

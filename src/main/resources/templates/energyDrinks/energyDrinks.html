@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Energy Drinks List</title>
+</head>
+<body>
+<h1>Energy Drinks</h1>
+
+<a href="/drinks/new">Add New Drink</a>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Brand</th>
+        <th>Volume (ml)</th>
+        <th>Caffeine (mg)</th>
+        <th>Calories</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="drink : ${energyDrinks}">
+        <td th:text="${drink.name}">Drink name</td>
+        <td th:text="${drink.brand.name}">Brand</td>
+        <td th:text="${drink.volumeInMl}">Volume</td>
+        <td th:text="${drink.caffeineInMg}">Caffeine</td>
+        <td th:text="${drink.calories}">Calories</td>
+        <td>
+            <a th:href="@{/drinks/edit/{id}(id=${drink.id})}">Edit</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
