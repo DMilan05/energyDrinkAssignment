@@ -12,24 +12,6 @@ import java.util.Optional;
 public class EnergyDrinkService {
 
     private final EnergyDrinkRepository energyDrinkRepository;
-
-    /*public EnergyDrinkService(EnergyDrinkRepository repository) {
-        this.repository = repository;
-    }
-
-    public List<EnergyDrink> findAll() {
-        return repository.findAll();
-    }
-
-    public List<EnergyDrink> findByCaffeineRange(double min, double max) {
-        return repository.findByCaffeinePer100mlBetween(min, max);
-    }
-
-    public EnergyDrink save(EnergyDrink drink) {
-        drink.calculateCaffeinePer100ml();
-        drink.calculateCaloriesPer100ml();
-        return repository.save(drink);
-    }*/
     public EnergyDrinkService(EnergyDrinkRepository energyDrinkRepository) {
         this.energyDrinkRepository = energyDrinkRepository;
     }
