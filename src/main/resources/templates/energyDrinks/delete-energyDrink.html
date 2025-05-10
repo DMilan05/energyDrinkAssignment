@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Delete Energy Drink</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<h1>Delete Energy Drink</h1>
+<p>Are you sure you want to delete the following energy drink?</p>
+
+<ul>
+    <li><strong>Name:</strong> <span th:text="${energyDrink.name}"></span></li>
+    <li><strong>Caffeine (mg):</strong> <span th:text="${energyDrink.caffeineMg}"></span></li>
+    <li><strong>Sugar (g):</strong> <span th:text="${energyDrink.sugarG}"></span></li>
+    <li><strong>Brand:</strong> <span th:text="${energyDrink.brand.name}"></span></li>
+</ul>
+
+<form th:action="@{'/drinks/delete/' + ${energyDrink.id}}" method="post">
+    <button type="submit">Yes, delete</button>
+    <a th:href="@{/drinks/list}">Cancel</a>
+</form>
+</body>
+</html>

@@ -1,6 +1,5 @@
 package hu.nye.energydrink.service;
 
-import hu.nye.energydrink.entity.Brand;
 import hu.nye.energydrink.entity.EnergyDrink;
 import hu.nye.energydrink.exception.NoSuchEntityException;
 import hu.nye.energydrink.repository.EnergyDrinkRepository;
@@ -8,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 public class EnergyDrinkService {
@@ -48,7 +46,7 @@ public class EnergyDrinkService {
         return energyDrinkRepository.save(energyDrink);
     }
 
-    public EnergyDrink findById(UUID id) {
+    public EnergyDrink findById(Long id) {
         Optional<EnergyDrink> optionalEnergyDrink = energyDrinkRepository.findById(id);
         if (optionalEnergyDrink.isPresent()) {
             return optionalEnergyDrink.get();
@@ -57,7 +55,7 @@ public class EnergyDrinkService {
         }
     }
 
-    public void deleteById(UUID id) {
+    public void deleteById(Long id) {
         energyDrinkRepository.deleteById(id);
     }
 }

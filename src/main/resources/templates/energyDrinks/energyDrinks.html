@@ -23,11 +23,14 @@
     <tr th:each="drink : ${energyDrinks}">
         <td th:text="${drink.name}">Drink name</td>
         <td th:text="${drink.brand.name}">Brand</td>
-        <td th:text="${drink.volumeInMl}">Volume</td>
-        <td th:text="${drink.caffeineInMg}">Caffeine</td>
-        <td th:text="${drink.calories}">Calories</td>
+        <td th:text="${drink.volume}">Volume</td>
+        <td th:text="${drink.caffeineContent}">Caffeine</td>
+        <td th:text="${drink.caloriesPer100ml}">Calories</td>
         <td>
             <a th:href="@{/drinks/edit/{id}(id=${drink.id})}">Edit</a>
+            <form th:action="@{/drinks/delete/{id}(id=${drink.id})}" method="post" style="display:inline;">
+                <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+            </form>
         </td>
     </tr>
     </tbody>

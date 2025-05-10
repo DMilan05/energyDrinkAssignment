@@ -32,8 +32,8 @@ public class EnergyDrinkController {
     @GetMapping("/new")
     public String createEnergyDrinksForm(Model model) {
         model.addAttribute("energyDrink", new EnergyDrink());
-        model.addAttribute("brands", brandServiceService.getAllBrands()); // Brands list for dropdown
-        return "energyDrinks/create-energyDrink"; // Updated template path
+        model.addAttribute("brands", brandServiceService.getAllBrands());
+        return "energyDrinks/create-energyDrink";
     }
 
     // POST: Save New EnergyDrinks
@@ -45,11 +45,11 @@ public class EnergyDrinkController {
 
     // GET: Show Edit EnergyDrink Page
     @GetMapping("/edit/{id}")
-    public String editEnergyDrinkForm(@PathVariable UUID id, Model model) {
+    public String editEnergyDrinkForm(@PathVariable Long id, Model model) {
         EnergyDrink energyDrink = energyDrinkService.findById(id);
         model.addAttribute("energyDrink", energyDrink);
-        model.addAttribute("energyDrinks", energyDrinkService.getAllEnergyDrinks()); // EnergyDrinks list for dropdown
-        return "energyDrinks/edit-energyDrink"; // Updated template path
+        model.addAttribute("brands", brandServiceService.getAllBrands());
+        return "energyDrinks/edit-energyDrink";
     }
 
     // POST: Update Existing EnergyDrink
@@ -61,8 +61,15 @@ public class EnergyDrinkController {
 
     // POST: Delete EnergyDrink
     @PostMapping("/delete/{id}")
-    public String deleteEnergyDrinks(@PathVariable UUID id) {
+    public String deleteEnergyDrinks(@PathVariable Long id) {
         energyDrinkService.deleteById(id);
         return "redirect:/drinks/list"; // Corrected redirect path
     }
+    @GetMapping("/delete/{id}")
+    public String confirmDelete(@PathVariable Long id, Model model) {
+        EnergyDrink energyDrink = energyDrinkService.findById(id);
+        model.addAttribute("energyDrink", energyDrink);
+        return "energyDrinks/delete-energyDrink";
+    }
+
 }

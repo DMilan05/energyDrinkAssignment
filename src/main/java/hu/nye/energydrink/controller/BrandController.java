@@ -44,7 +44,7 @@ public class BrandController {
 
     // GET: Show Edit Brand Page
     @GetMapping("/edit/{id}")
-    public String editBrandForm(@PathVariable UUID id, Model model) {
+    public String editBrandForm(@PathVariable Long id, Model model) {
         Brand brand = brandService.findById(id);
         model.addAttribute("brand", brand);
         return "brands/edit-brand";
@@ -59,7 +59,7 @@ public class BrandController {
 
     // POST: Delete Brand
     @PostMapping("/delete/{id}")
-    public String deleteBrand(@PathVariable UUID id) {
+    public String deleteBrand(@PathVariable Long id) {
         brandService.deleteById(id);
         return "redirect:/brands/list";
     }

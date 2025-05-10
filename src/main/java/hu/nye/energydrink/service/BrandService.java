@@ -15,17 +15,7 @@ public class BrandService {
     private final BrandRepository brandRepository;
 
 
-    /*public BrandService(BrandRepository repository) {
-        this.repository = repository;
-    }
 
-    public List<Brand> findAll() {
-        return repository.findAll();
-    }
-
-    public Brand save(Brand brand) {
-        return repository.save(brand);
-    }*/
     public BrandService(BrandRepository brandRepository) {
         this.brandRepository = brandRepository;
     }
@@ -42,7 +32,7 @@ public class BrandService {
         return brandRepository.save(brand);
     }
 
-    public Brand findById(UUID id) {
+    public Brand findById(Long id) {
         Optional<Brand> optionalBrand = brandRepository.findById(id);
         if (optionalBrand.isPresent()) {
             return optionalBrand.get();
@@ -51,7 +41,7 @@ public class BrandService {
         }
     }
 
-    public void deleteById(UUID id) {
+    public void deleteById(Long id) {
         brandRepository.deleteById(id);
     }
 }

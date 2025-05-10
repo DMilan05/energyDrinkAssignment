@@ -7,19 +7,22 @@
 <body>
 <h1>Edit Energy Drink</h1>
 
-<form th:action="@{/drinks}" th:object="${energyDrink}" method="post">
+<form th:action="@{/drinks/edit}" th:object="${energyDrink}" method="post">
     <input type="hidden" th:field="*{id}"/>
     <label>Name: <input type="text" th:field="*{name}"/></label><br/>
-    <label>Volume (ml): <input type="number" th:field="*{volumeInMl}"/></label><br/>
-    <label>Caffeine (mg): <input type="number" th:field="*{caffeineInMg}"/></label><br/>
-    <label>Calories: <input type="number" th:field="*{calories}"/></label><br/>
+    <label>Volume (ml): <input type="number" th:field="*{volume}"/></label><br/>
+    <label>Caffeine (mg): <input type="number" th:field="*{caffeineContent}"/></label><br/>
+    <label>Sugar (g): <input type="number" th:field="*{sugarContent}"/></label><br/>
+    <label>Flavor: <input type="text" th:field="*{flavor}"/></label><br/>
+    <label>Carbonated: <input type="checkbox" th:field="*{carbonated}"/></label><br/>
     <label>Brand:
         <select th:field="*{brand}">
-            <option th:each="brand : ${brands}" th:value="${brand}" th:text="${brand.name}"></option>
+            <option th:each="brand : ${brands}" th:value="${brand.id}" th:text="${brand.name}"></option>
         </select>
     </label><br/>
     <button type="submit">Save</button>
 </form>
+
 
 <a href="/drinks/list">Back to list</a>
 </body>
