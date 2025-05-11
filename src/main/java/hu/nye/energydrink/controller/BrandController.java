@@ -13,7 +13,7 @@ import java.util.UUID;
 @Controller
 @RequestMapping("/brands")
 public class BrandController {
-    @Autowired
+
     private final BrandService brandService;
 
     public BrandController(BrandService service) {

@@ -2,6 +2,7 @@ package hu.nye.energydrink.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -27,6 +28,7 @@ public class Brand {
     }
 
     public Brand() {
+        this.drinks = new ArrayList<>();
     }
 
     public Long getId() {

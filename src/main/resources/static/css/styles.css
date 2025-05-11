@@ -1,0 +1,81 @@
+/* public/css/styles.css */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    color: #f1f1f1;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #00ff99;
+    text-shadow: 0 0 10px #00ff99;
+}
+
+a {
+    color: #00ccff;
+    text-decoration: none;
+    font-weight: bold;
+}
+a:hover {
+    text-decoration: underline;
+    color: #66e0ff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #1a1a1a;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #444;
+    text-align: center;
+}
+
+th {
+    background-color: #333;
+    color: #00ffcc;
+}
+
+td {
+    background-color: #222;
+}
+
+button {
+    background-color: #00cc66;
+    border: none;
+    padding: 10px 15px;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 5px #00cc66;
+}
+button:hover {
+    background-color: #00994d;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    padding: 8px;
+    width: 200px;
+    margin: 5px 0;
+    border: 1px solid #555;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
