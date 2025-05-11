@@ -12,6 +12,7 @@ import java.util.Optional;
 public class EnergyDrinkService {
 
     private final EnergyDrinkRepository energyDrinkRepository;
+
     public EnergyDrinkService(EnergyDrinkRepository energyDrinkRepository) {
         this.energyDrinkRepository = energyDrinkRepository;
     }

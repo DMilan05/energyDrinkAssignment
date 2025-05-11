@@ -65,6 +65,7 @@ public class EnergyDrinkController {
         energyDrinkService.deleteById(id);
         return "redirect:/drinks/list"; // Corrected redirect path
     }
+
     @GetMapping("/delete/{id}")
     public String confirmDelete(@PathVariable Long id, Model model) {
         EnergyDrink energyDrink = energyDrinkService.findById(id);

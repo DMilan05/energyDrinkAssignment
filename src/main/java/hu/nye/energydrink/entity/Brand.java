@@ -28,7 +28,7 @@ public class Brand {
     }
 
     public Brand() {
-        this.drinks = new ArrayList<>();
+
     }
 
     public Long getId() {
