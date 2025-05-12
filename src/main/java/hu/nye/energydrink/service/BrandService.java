@@ -1,23 +1,21 @@
 package hu.nye.energydrink.service;
-
 import hu.nye.energydrink.entity.Brand;
 import hu.nye.energydrink.exception.NoSuchEntityException;
 import hu.nye.energydrink.repository.BrandRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 public class BrandService {
+    @Autowired
+    private BrandRepository brandRepository;
 
-    private final BrandRepository brandRepository;
 
-
-    public BrandService(BrandRepository brandRepository) {
+    /*public BrandService(BrandRepository brandRepository) {
         this.brandRepository = brandRepository;
-    }
+    }*/
 
     public List<Brand> getAllBrands() {
         return brandRepository.findAll();
@@ -36,7 +34,8 @@ public class BrandService {
         if (optionalBrand.isPresent()) {
             return optionalBrand.get();
         } else {
-            throw new NoSuchEntityException("There was no brand with id: " + id);
+            throw new NoSuchEntityException("There was no brand with id: "
+                    + id);
         }
     }
 

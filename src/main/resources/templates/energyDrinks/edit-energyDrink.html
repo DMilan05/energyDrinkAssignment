@@ -17,8 +17,11 @@
     <label>Flavor: <input type="text" th:field="*{flavor}"/></label><br/>
     <label>Carbonated: <input type="checkbox" th:field="*{carbonated}"/></label><br/>
     <label>Brand:
-        <select th:field="*{brand}">
-            <option th:each="brand : ${brands}" th:value="${brand.id}" th:text="${brand.name}"></option>
+        <select th:field="*{brand.id}">
+            <option th:each="brand : ${brands}"
+                    th:value="${brand.id}"
+                    th:text="${brand.name}">
+            </option>
         </select>
     </label><br/>
     <button type="submit">Save</button>
