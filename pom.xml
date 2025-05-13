@@ -119,8 +119,12 @@
 				</executions>
 				<configuration>
 					<excludes>
+
 						<exclude>**/exception/*</exclude>
-						<exclude>**/EnergyDrink.class</exclude>
+						<exclude>**/entity/*</exclude>
+						<exclude>**/repository/*</exclude>
+						<exclude>**/controller/*</exclude>
+						<exclude>**/Main.class</exclude>
 					</excludes>
 				</configuration>
 			</plugin>

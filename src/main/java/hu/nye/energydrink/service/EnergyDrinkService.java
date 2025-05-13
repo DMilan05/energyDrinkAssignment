@@ -13,10 +13,6 @@ public class EnergyDrinkService {
     @Autowired
     private EnergyDrinkRepository energyDrinkRepository;
 
-    /*public EnergyDrinkService(EnergyDrinkRepository energyDrinkRepository) {
-        this.energyDrinkRepository = energyDrinkRepository;
-    }*/
-
     public List<EnergyDrink> getAllEnergyDrinks() {
         return energyDrinkRepository.findAll();
     }

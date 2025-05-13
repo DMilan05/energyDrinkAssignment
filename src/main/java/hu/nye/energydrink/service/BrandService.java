@@ -12,11 +12,6 @@ public class BrandService {
     @Autowired
     private BrandRepository brandRepository;
 
-
-    /*public BrandService(BrandRepository brandRepository) {
-        this.brandRepository = brandRepository;
-    }*/
-
     public List<Brand> getAllBrands() {
         return brandRepository.findAll();
     }
