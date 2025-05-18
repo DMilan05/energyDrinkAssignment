@@ -125,6 +125,7 @@
 						<exclude>**/repository/*</exclude>
 						<exclude>**/controller/*</exclude>
 						<exclude>**/Main.class</exclude>
+						<exclude>**/EnergyDrinkApplication.class</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
